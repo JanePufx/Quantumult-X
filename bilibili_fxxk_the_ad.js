@@ -3,7 +3,7 @@
 # 样例可参见 https://raw.githubusercontent.com/crossutility/Quantumult-X/master/sample-import-rewrite.snippet
  
  # BiliBili 应用开屏去广告@bm7
-hostname = app.bilibili.com
+hostname = app.bilibili。com
 ^https://app.bilibili.com/x/v2/splash/show url reject-dict
  
 ;^http://example.com/resource1/4/ url reject-dict
