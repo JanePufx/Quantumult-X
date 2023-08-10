@@ -3,6 +3,7 @@
 # 样例可参见 https://raw.githubusercontent.com/crossutility/Quantumult-X/master/sample-import-rewrite.snippet
 
 #小鱼
+hostname = ebike-client.xiaoantech.com
 
 ^https:\/\/ebike-client\.xiaoantech\.com\/client\/helpConfig\/getHomeNavByServiceId url reject-dict
 
