@@ -25,14 +25,14 @@ if (method !== "GET") {
 let body = JSON.parse($response.body);
 
 
-if (!body.data) {
+if (!body) {
     console.log(url);
     console.log(`body:${$response.body}`);
 } else {
-        if (!body.data.cataChannelList) {
+        if (!body.cataChannelList) {
             console.log(`body:${$response.body}`);
         } else {
-            body.data.cataChannelList = body.data.cataChannelList.filter(item => {
+            body.cataChannelList = body.cataChannelList.filter(item => {
                 if (item.cataName === '专题') {
                     console.log('去除专题');
                     return false;
@@ -51,7 +51,19 @@ if (!body.data) {
                 }
                 return true;
             });
-            fixPos(body.data.cataChannelList);
+            fixPos(body.cataChannelList);
+        }
+
+        if (!body.data) {
+            console.log(`body:${$response.body}`);
+        } else {
+            body.data.appconfig.hpConfig.list = body.data.appconfig.hpConfig.list.filter(item => {
+                if (item.name === '微应用') {
+                    item.display = 0
+                }
+                return true;
+            });
+            fixPos(body.cataChannelList);
         }
 }
 
