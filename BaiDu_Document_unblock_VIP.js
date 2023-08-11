@@ -4,7 +4,7 @@
  
 ## ✅ 百度文库解锁VIP文档阅读权限
 hostname = appwk.baidu.com
-^https:\/\/appwk\.baidu\.com\/naapi\/user\/getinfo url script-response-body https://raw.githubusercontent。com/RuCu6/QuanX/main/Scripts/baidu/baiduLib.js
+^https:\/\/appwk\.baidu\.com\/naapi\/user\/getinfo url script-response-body https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/baidu/baiduLib.js
 
  
 ;^http://example.com/resource1/4/ url reject-dict
