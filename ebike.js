@@ -5,6 +5,9 @@
 #小鱼
 hostname = ebike-client.xiaoantech.com
 
-^https:\/\/ebike-client\.xiaoantech\.com\/client\/helpConfig\/getHomeNavByServiceId url reject-dict
+# 优化界面元素
+# 
+# ^https:\/\/ebike-client\.xiaoantech\.com\/client\/helpConfig\/getHomeNavByServiceId url reject-dict
 
-# ^https:\/\/ebike-client\.xiaoantech\.com\/client\/fence\/resource\/management\/appList url reject-dict
+# 去卡贴广告 -> 超值骑行卡套餐 | 充值骑行更省心
+^https:\/\/ebike-client\.xiaoantech\.com\/client\/fence\/resource\/management\/appList url reject-dict
