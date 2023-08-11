@@ -5,6 +5,6 @@
 #小鱼
 hostname = ebike-client.xiaoantech.com
 
-# ^https:\/\/ebike-client\.xiaoantech\.com\/client\/helpConfig\/getHomeNavByServiceId url reject-dict
+^https:\/\/ebike-client\.xiaoantech\.com\/client\/helpConfig\/getHomeNavByServiceId url reject-dict
 
 # ^https:\/\/ebike-client\.xiaoantech\.com\/client\/fence\/resource\/management\/appList url reject-dict
