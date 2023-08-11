@@ -2,7 +2,8 @@
 # 片段文件将保存在 Quantumult X 目录下的 Profiles 子目录中。
 # 样例可参见 https://raw.githubusercontent.com/crossutility/Quantumult-X/master/sample-import-rewrite.snippet
  
- ## 百度网盘广告屏蔽(会员卖卡赚钱)       hostname = sofire.baidu。com,ndstatic.cdn。bcebos。com,pan.baidu。com,staticsns.cdn。bcebos。com,issuecdn.baidupcs。com
+ ## 百度网盘广告屏蔽(会员卖卡赚钱)       
+hostname = sofire.baidu.com,ndstatic.cdn.bcebos.com,pan.baidu.com,staticsns.cdn.bcebos.com,issuecdn.baidupcs.com
 ^https:\/\/pan\.baidu\.com\/pmall\/order\/privilege\/info url reject
 ^https:\/\/pan\.baidu\.com\/rest\/.+\/pcs\/adx url reject
 ^https:\/\/pan\.baidu\.com\/api\/useractivity\/activity url reject
