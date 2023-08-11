@@ -10,13 +10,15 @@ hostname = ebike-client.xiaoantech.com
 # -> 计费标准
 ^https:\/\/ebike-client\.xiaoantech\.com\/client\/helpConfig\/getHomeScrollerMsgByServiceId url reject-dict
 
-# -> 购卡更划算 - 购卡后可享折扣 - 更多
+# -> 计费说明
+^https:\/\/ebike-client\.xiaoantech\.com\/client\/fence\/config\/protocol\/default url reject-dict
 
+# -> 购卡更划算 - 购卡后可享折扣 - 更多
 # 7天骑行周卡 30天骑行周卡 
 ^https:\/\/ebike-client\.xiaoantech\.com\/client\/helpConfig\/getCardPromoteConfigByServiceId url reject-dict
 
 # -> 充值特惠 | 卡券商城 | 编号开锁 | 客服中心 | 消息中心
-# ^https:\/\/ebike-client\.xiaoantech\.com\/client\/helpConfig\/getHomeNavByServiceId url reject-dict
+^https:\/\/ebike-client\.xiaoantech\.com\/client\/helpConfig\/getHomeNavByServiceId url reject-dict
 
 # -> 超值骑行卡套餐 | 充值骑行更省心
 ^https:\/\/ebike-client\.xiaoantech\.com\/client\/fence\/resource\/management\/appList url reject-dict
