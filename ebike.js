@@ -2,12 +2,20 @@
 # 片段文件将保存在 Quantumult X 目录下的 Profiles 子目录中。
 # 样例可参见 https://raw.githubusercontent.com/crossutility/Quantumult-X/master/sample-import-rewrite.snippet
 
-#小鱼
+# 小鱼
 hostname = ebike-client.xiaoantech.com
 
 # 优化界面元素
-# 
+
+# -> 计费标准
+
+
+# -> 购卡更划算 - 购卡后可享折扣 - 更多
+# 7天骑行周卡 30天骑行周卡 
+
+
+# -> 充值特惠 | 卡券商城 | 编号开锁 | 客服中心 | 消息中心
 # ^https:\/\/ebike-client\.xiaoantech\.com\/client\/helpConfig\/getHomeNavByServiceId url reject-dict
 
-# 去卡贴广告 -> 超值骑行卡套餐 | 充值骑行更省心
+# -> 超值骑行卡套餐 | 充值骑行更省心
 ^https:\/\/ebike-client\.xiaoantech\.com\/client\/fence\/resource\/management\/appList url reject-dict
