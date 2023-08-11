@@ -3,7 +3,7 @@
 # 样例可参见 https://raw.githubusercontent.com/crossutility/Quantumult-X/master/sample-import-rewrite.snippet
  
 ## ✅ 百度文库解锁VIP文档阅读权限
-hostname = appwk.baidu。com
+hostname = appwk.baidu.com
 ^https:\/\/appwk\.baidu\.com\/naapi\/user\/getinfo url script-response-body https://raw.githubusercontent。com/RuCu6/QuanX/main/Scripts/baidu/baiduLib.js
 
  
