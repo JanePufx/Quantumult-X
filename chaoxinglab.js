@@ -16,6 +16,7 @@ hostname = apps.chaoxing.com
 const url = $request.url;
 const method = $request.method;
 const notifyTitle = 'chaoxing json'
+
 if (!$response.body) {
     // 有undefined的情况
     console.log(`$response.body为undefined:${url}`);
@@ -62,7 +63,7 @@ if (!body) {
         } else {
             body.data.appconfig.hpConfig.list = body.data.appconfig.hpConfig.list.filter(item => {
                 if (item.name === '微应用') {
-                    item.display = 0
+                    return false;
                 }
                 return true;
             });
