@@ -7,6 +7,7 @@
 [rewrite_local]
 # 超星学习通去界面元素
 ^https:\/\/apps\.chaoxing\.com\/apis\/subscribe\/getAppCataInfo\.jspx\? url script-response-body https://raw.githubusercontent.com/JanePufx/Quantumult-X/main/chaoxinglab.js
+^https:\/\/learn\.chaoxing\.com\/apis\/service\/config\? url script-response-body https://raw.githubusercontent.com/JanePufx/Quantumult-X/main/chaoxinglab.js
 
 [mitm]
 hostname = apps.chaoxing.com
@@ -30,6 +31,7 @@ if (!body) {
     console.log(url);
     console.log(`body:${$response.body}`);
 } else {
+    if (url.includes("subscribe/getAppCataInfo")) {
         if (!body.cataChannelList) {
             console.log(`body:${$response.body}`);
         } else {
@@ -54,7 +56,7 @@ if (!body) {
             });
             fixPos(body.cataChannelList);
         }
-
+    } else if (url.includes("service/config")) {
         if (!body.data) {
             console.log(`body:${$response.body}`);
         } else {
@@ -66,6 +68,7 @@ if (!body) {
             });
             fixPos(body.cataChannelList);
         }
+    }
 }
 
 body = JSON.stringify(body);
