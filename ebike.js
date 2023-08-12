@@ -18,7 +18,7 @@ hostname = ebike-client.xiaoantech.com
 ^https:\/\/ebike-client\.xiaoantech\.com\/client\/helpConfig\/getCardPromoteConfigByServiceId url reject-dict
 
 # -> 充值特惠 | 卡券商城 | 编号开锁 | 客服中心 | 消息中心
-^https:\/\/ebike-client\.xiaoantech\.com\/client\/helpConfig\/getHomeNavByServiceId url reject-dict
+^https:\/\/ebike-client\.xiaoantech\.com\/client\/helpConfig\/getHomeNavByServiceId url script-response-body https://raw.githubusercontent.com/JanePufx/Quantumult-X/main/ebikelab.js
 
 # -> 超值骑行卡套餐 | 充值骑行更省心
 ^https:\/\/ebike-client\.xiaoantech\.com\/client\/fence\/resource\/management\/appList url reject-dict
