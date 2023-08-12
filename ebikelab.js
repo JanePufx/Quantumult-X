@@ -32,7 +32,7 @@ if (!body) {
     console.log(`body:${$response.body}`);
 } else {
     if (url.includes("client/helpConfig/getHomeNavByServiceId")) {
-        if (!body.cataChannelList) {
+        if (!body.data) {
             console.log(`body:${$response.body}`);
         } else {
             body.data = body.data.filter(item => {
@@ -44,21 +44,9 @@ if (!body) {
                 }
                 return true;
             });
-            fixPos(body.cataChannelList);
+            fixPos(body.data);
         }
-    } else if (url.includes("service/config")) {
-        if (!body.data) {
-            console.log(`body:${$response.body}`);
-        } else {
-            body.data.appconfig.hpConfig.list = body.data.appconfig.hpConfig.list.filter(item => {
-                if (item.name === '微应用') {
-                    return false;
-                }
-                return true;
-            });
-            fixPos(body.cataChannelList);
-        }
-    }
+    } 
 }
 
 body = JSON.stringify(body);
