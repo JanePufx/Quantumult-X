@@ -56,6 +56,13 @@ if (!body.data) {
                     console.log('去除会员购');
                     return false;
                 }
+
+                // Jane
+                else if (item.name === '动态') {
+                    console.log('去除动态');
+                    return false;
+                }
+
                 return true;
             });
             fixPos(body.data.bottom);
@@ -101,7 +108,8 @@ if (!body.data) {
                     console.log(`body:${$response.body}`);
                     $notification.post(notifyTitle, '推荐页', "无card_type/card_goto");
                 }
-
+                
+                // Jane
                 if(!i.args){
                     console.log(`up name:${i.args.up_name} uid:${i.args.up_id}`);
                     // 屏蔽up uid方式
