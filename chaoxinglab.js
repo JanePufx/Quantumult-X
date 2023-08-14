@@ -16,17 +16,16 @@ hostname = apps.chaoxing.com
 const url = $request.url;
 const method = $request.method;
 const notifyTitle = 'chaoxing json'
+const itemsToExclude = ['微读书', '微应用', '活动']; // 添加需要去除的项目名称
 
 if (!$response.body) {
-    // 有undefined的情况
     console.log(`$response.body为undefined:${url}`);
     $done({});
 }
 if (method !== "GET") {
-    $notification.post(notifyTitle, "method错误:", method);
+    console.log(`${notifyTitle}-method:${method}`);
 }
 let body = JSON.parse($response.body);
-
 
 if (!body) {
     console.log(url);
@@ -36,26 +35,16 @@ if (!body) {
         if (!body.cataChannelList) {
             console.log(`body:${$response.body}`);
         } else {
+            //console.log(`body:${body.cataChannelList}`);
             body.cataChannelList = body.cataChannelList.filter(item => {
-                if (item.cataName === '专题') {
-                    console.log('去除专题');
-                    return false;
-                }
-                if (item.cataName === '图书馆') {
-                    console.log('去除图书馆');
-                    return false;
-                }
-                if (item.cataName === '报纸') {
-                    console.log('去除报纸');
-                    return false;
-                }
-                if (item.cataName === '期刊') {
-                    console.log('去除期刊');
+                //console.log(`item:${item}`);
+                if (itemsToExclude.includes(item.name)) {
+                    console.log(`去除item:${item.name}`);
                     return false;
                 }
                 return true;
             });
-            fixPos(body.cataChannelList);
+            fixPos(body.data);
         }
     } else if (url.includes("service/config")) {
         if (!body.data) {
