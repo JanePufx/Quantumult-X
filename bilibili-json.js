@@ -3,7 +3,7 @@ const method = $request.method;
 const notifyTitle = "bilibili-json";
 const up_uid = ['2571478','6574487', '450882837', '37119626', '476993587', '3493277586164423', '385105236', '13972445', '43707221', '390461123', '630721866', '6087825', '1428923', '170801610', '317839021', '602664449', '443462760', '255508156', '1213489275', '204408558', '1985025', '314298412', '251569233', '1939319', '382953284', '163637592', '446430908', '8366990', '1192648858'];
 
-console.log(`b站json-2023.03.24`);
+//console.log(`b站json-2023.08.14`);
 if (!$response.body) {
     // 有undefined的情况
     console.log(`$response.body为undefined:${url}`);
@@ -152,22 +152,24 @@ if (!body.data) {
                 return true;
             });
         }
-    } else if (url.includes("x/v2/account/mine")) {
-        console.log('我的页面');
-        if (!body.data.sections_v2) {
-            console.log(`body:${$response.body}`);
-            $notification.post(notifyTitle, 'tab', "top字段错误");
-        } else {
-            body.data.sections_v2 = body.data.sections_v2.filter(item => {
-                if (item.title === '开播福利') {
-                    console.log('去除开播福利');
-                    return false;
-                }
-                return true;
-            });
-        }
-    } else {
-        $notification.post(notifyTitle, "路径匹配错误:", url);
+    }
+    // } else if (url.includes("x/v2/account/mine")) {
+    //     console.log('我的页面');
+    //     if (!body.data.sections_v2) {
+    //         console.log(`body:${$response.body}`);
+    //         $notification.post(notifyTitle, 'tab', "top字段错误");
+    //     } else {
+    //         body.data.sections_v2 = body.data.sections_v2.filter(item => {
+    //             if (item.title === '开播福利') {
+    //                 console.log('去除开播福利');
+    //                 return false;
+    //             }
+    //             return true;
+    //         });
+    //     }
+    // } 
+        else {
+            $notification.post(notifyTitle, "路径匹配错误:", url);
     }
 }
 
