@@ -51,6 +51,14 @@ if (!body.data) {
             $notification.post(notifyTitle, 'tab', "tab字段错误");
         } else {
             body.data.tab = body.data.tab.filter(item => {
+                if (item.name === '直播') {
+                    console.log('去除直播');
+                    return false;
+                }
+                if (item.name === '校园') {
+                    console.log('去除校园');
+                    return false;
+                }
                 if (item.name === '新征程') {
                     console.log('去除新征程');
                     return false;
@@ -95,7 +103,7 @@ if (!body.data) {
                 if(i.title){
                     // console.log(`video title:${i.title}`);
                     // 屏蔽视频 关键字方式
-                    if (['TFBOYS'].includes(i.title)) {
+                    if (['开端'].includes(i.title)) {
                         console.log(`！！！--已屏蔽视频:${i.title}--！！！`);
                         return false;
                     }
@@ -140,6 +148,20 @@ if (!body.data) {
                 } else {
                     console.log(`body:${$response.body}`);
                     $notification.post(notifyTitle, '推荐页', "无card_type/card_goto");
+                }
+                return true;
+            });
+        }
+    } else if (url.includes("x/v2/account/mine")) {
+        console.log('我的页面');
+        if (!body.data.sections_v2.items) {
+            console.log(`body:${$response.body}`);
+            $notification.post(notifyTitle, 'tab', "top字段错误");
+        } else {
+            body.data.sections_v2.items = body.data.sections_v2.items.filter(item => {
+                if (item.title === '开播福利') {
+                    console.log('去除开播福利');
+                    return false;
                 }
                 return true;
             });
