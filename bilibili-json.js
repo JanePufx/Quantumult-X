@@ -76,7 +76,7 @@ if (!body.data) {
             $notification.post(notifyTitle, '推荐页', "items字段错误");
         } else {
             body.data.items = body.data.items.filter(i => {
-                
+                const {card_type: cardType, card_goto: cardGoto} = i;
                 // Jane
                 if(i.title){
                     // console.log(`video title:${i.title}`);
@@ -93,10 +93,7 @@ if (!body.data) {
                         console.log(`！！！--已屏蔽up:${i.args.up_name}--！！！`);
                         return false;
                     }
-                }
-                
-                const {card_type: cardType, card_goto: cardGoto} = i;
-                if (cardType && cardGoto) {
+                } else if (cardType && cardGoto) {
                     if (cardType === 'banner_v8' && cardGoto === 'banner') {
                         if (!i.banner_item) {
                             console.log(`body:${$response.body}`);
