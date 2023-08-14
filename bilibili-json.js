@@ -159,7 +159,7 @@ if (!body.data) {
             $notification.post(notifyTitle, 'tab', "top字段错误");
         } else {
             body.data.sections_v2 = body.data.sections_v2.filter(item => {
-                if (item.items.title === '开播福利') {
+                if (item.title === '开播福利') {
                     console.log('去除开播福利');
                     return false;
                 }
