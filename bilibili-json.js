@@ -164,10 +164,10 @@ if (!body.data) {
             body.data.sections_v2 = body.data.sections_v2.filter(i => {
                 i.items = i.items.filter(j => {
                     //去除稍后再看
-                    if (['稍后再看'].includes(j.title)) {
-                        console.log('去除稍后再看');
-                        return false;
-                    }
+                    // if (['稍后再看'].includes(j.title)) {
+                    //     console.log('去除稍后再看');
+                    //     return false;
+                    // }
                     // 去除创作中心
                     if (['创作中心', '稿件管理', '任务中心', '有奖活动', '开播福利', '主播中心', '直播数据', '主播活动'].includes(j.title)) {
                         console.log('去除创作中心');
