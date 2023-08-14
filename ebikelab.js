@@ -1,17 +1,3 @@
-/***********************************
-> 应用名称：乐哥骑行
-> 脚本功能：去除不必要的元素
-> 脚本作者：5.Jan1
-> 更新时间：2023-8-12
-
-[rewrite_local]
-# 超星学习通去界面元素
-^https:\/\/ebike-client\.xiaoantech\.com\/client\/helpConfig\/getHomeNavByServiceId url reject-dict
-
-[mitm]
-hostname = apps.chaoxing.com
-***********************************/
-
 const url = $request.url;
 const method = $request.method;
 const notifyTitle = 'ebike json'
