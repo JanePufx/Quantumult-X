@@ -28,28 +28,12 @@ if (!body) {
     console.log(url);
     console.log(`body:${$response.body}`);
 } else {
-    // if (url.includes("subscribe/getAppCataInfo")) {
-    //     if (!body.cataChannelList) {
-    //         console.log(`body:${$response.body}`);
-    //     } else {
-    //         //console.log(`body:${body.cataChannelList}`);
-    //         body.cataChannelList = body.cataChannelList.filter(item => {
-    //             //console.log(`item:${item}`);
-    //             if (itemsToExclude.includes(item.name)) {
-    //                 console.log(`去除item:${item.name}`);
-    //                 return false;
-    //             }
-    //             return true;
-    //         });
-    //         fixPos(body.data);
-    //     }
-    // } else 
     if (url.includes("service/config")) {
         if (!body.data) {
             console.log(`body:${$response.body}`);
         } else {
             body.data.appconfig.hpConfig.list = body.data.appconfig.hpConfig.list.filter(item => {
-                if (item.name === '微应用') {
+                if (['微应用', '关注', '微读书', '知视频'].includes(item.name)) {
                     return false;
                 }
                 return true;
