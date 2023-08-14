@@ -76,11 +76,11 @@ if (!body.data) {
             body.data.items = body.data.items.filter(i => {
                 
                 // Jane
-                const key_word = ['TFBOYS','波奇','孤独'];
+                const key_words = ['TFBOYS', '波奇', '孤独'];
                 if(i.title){
                     console.log(`video title:${i.title}`);
                     // 屏蔽视频 关键字方式
-                    if (key_word.includes(i.title)) {
+                    if (key_words.indexOf(i.title) !== -1) {
                         console.log(`已屏蔽视频:${i.title}！！！`);
                         return false;
                     }
@@ -89,7 +89,7 @@ if (!body.data) {
                 if(i.args){
                     console.log(`up name:${i.args.up_name} uid:${i.args.up_id}`);
                     // 屏蔽up uid方式
-                    if (up_uid.includes(i.args.up_id)) {
+                    if (up_uid.indexOf(i.args.up_id) !== -1) {
                         console.log(`已屏蔽up:${i.args.up_name}！！！`);
                         return false;
                     }
