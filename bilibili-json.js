@@ -186,7 +186,7 @@ if (!body.data) {
                     return true;
                 })
                 if (['创作中心', '推荐服务', '更多服务'].includes(i.title)){
-                    i.title = '';
+                    i.title = "";
                 }
                 return true;
             });
