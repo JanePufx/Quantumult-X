@@ -110,6 +110,36 @@ if (!body.data) {
                 }
                 
                 // Jane
+                //console.log(`up name:${i.args.up_name} uid:${i.args.up_id}`);
+                // if(!i.args){
+                //     console.log(`啊？`);
+                //     // 屏蔽up uid方式
+                //     const up_uid = ['6574487', '450882837', '37119626', '476993587', '3493277586164423', '385105236', '13972445', '43707221', '390461123', '630721866', '6087825', '1428923', '170801610', '317839021', '602664449', '443462760', '255508156', '1213489275', '204408558', '1985025', '314298412', '251569233', '1939319', '382953284', '163637592', '446430908', '8366990', '1192648858'];
+                //     if (up_uid.includes(i.args.up_id)) {
+                //       console.log(`屏蔽up:${i.args.up_name}`);
+                //       return false;
+                //     }
+                // }
+                
+                
+                // 屏蔽视频 关键字方式
+                // const key_word = ['TFBOYS','波奇','孤独'];
+                // if (key_word.includes(i.title)) {
+                //   console.log(`屏蔽视频:${i.title}`);
+                //   return false;
+                // }
+
+
+                return true;
+            });
+        }
+    } 
+    if (url.includes("x/v2/feed/index")) {
+        if (!body.data.items?.length) {
+            $notification.post(notifyTitle, '推荐页', "items字段错误");
+        } else {
+            body.data.items = body.data.items.filter(i => {
+                // Jane
                 console.log(`up name:${i.args.up_name} uid:${i.args.up_id}`);
                 if(!i.args){
                     console.log(`啊？`);
@@ -120,20 +150,16 @@ if (!body.data) {
                       return false;
                     }
                 }
-                
-                
                 // 屏蔽视频 关键字方式
                 const key_word = ['TFBOYS','波奇','孤独'];
                 if (key_word.includes(i.title)) {
                   console.log(`屏蔽视频:${i.title}`);
                   return false;
                 }
-
-
                 return true;
             });
         }
-    } else {
+    }else {
         $notification.post(notifyTitle, "路径匹配错误:", url);
     }
 }
