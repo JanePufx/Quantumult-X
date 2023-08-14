@@ -45,6 +45,20 @@ if (!body.data) {
             });
             fixPos(body.data.top);
         }
+        // Jane 中部tab栏
+        if (!body.data.tab) {
+            console.log(`body:${$response.body}`);
+            $notification.post(notifyTitle, 'tab', "tab字段错误");
+        } else {
+            body.data.tab = body.data.tab.filter(item => {
+                if (item.name === '新征程') {
+                    console.log('去除新征程');
+                    return false;
+                }
+                return true;
+            });
+            fixPos(body.data.top);
+        }
         // 底部tab栏
         if (!body.data.bottom) {
             console.log(`body:${$response.body}`);
@@ -94,7 +108,8 @@ if (!body.data) {
                         return false;
                     }
                 } else if (cardType && cardGoto) {
-                    if (cardType === 'banner_v8' && cardGoto === 'banner') {
+                    // 增加ipad适配
+                    if (cardType === 'banner_v8' || 'banner_ipad_v8' && cardGoto === 'banner') {
                         if (!i.banner_item) {
                             console.log(`body:${$response.body}`);
                             $notification.post(notifyTitle, '推荐页', "banner_item错误");
