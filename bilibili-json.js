@@ -79,15 +79,15 @@ if (!body.data) {
                 
                 // Jane
                 if(i.title){
-                    console.log(`video title:${i.title}`);
+                    // console.log(`video title:${i.title}`);
                     // 屏蔽视频 关键字方式
-                    if (['TFBOYS', '波奇', '孤独摇滚','山田凉','4','京'].includes(i.title)) {
+                    if (['TFBOYS', '波奇', '孤独摇滚','山田凉','4','京','网','轻'].includes(i.title)) {
                         console.log(`！！！--已屏蔽视频:${i.title}--！！！`);
                         return false;
                     }
                 }
                 if(i.args){
-                    console.log(`up name:${i.args.up_name} uid:${i.args.up_id}`);
+                    // console.log(`up name:${i.args.up_name} uid:${i.args.up_id}`);
                     // 屏蔽up uid方式
                     if (up_uid.includes(i.args.up_id)) {
                         console.log(`！！！--已屏蔽up:${i.args.up_name}--！！！`);
