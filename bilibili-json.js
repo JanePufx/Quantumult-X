@@ -100,14 +100,15 @@ if (!body.data) {
             body.data.items = body.data.items.filter(i => {
                 const {card_type: cardType, card_goto: cardGoto} = i;
                 // Jane
-                // if(i.title){
-                    // console.log(`video title:${i.title}`);
+                if(i.title){
+                    console.log(`video title:${i.title}`);
                     // 屏蔽视频 关键字方式
-                    // if (['开端'].includes(i.title)) {
-                        // console.log(`！！！--已屏蔽视频:${i.title}--！！！`);
-                        // return false;
-                    // }
-                // }
+                    if (["开端"].includes(i.title)) {
+                        i.title = "";
+                        console.log(`！！！--已屏蔽视频:${i.title}--！！！`);
+                        //return false;
+                    }
+                }
                 // if(i.args){
                     // console.log(`up name:${i.args.up_name} uid:${i.args.up_id}`);
                     // 屏蔽up uid方式
