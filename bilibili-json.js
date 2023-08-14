@@ -136,7 +136,6 @@ if (!body.data) {
     } 
     if (url.includes("x/v2/feed/index")) {
         if (!body.data.items?.length) {
-            $notification.post(notifyTitle, '推荐页', "items字段错误");
         } else {
             body.data.items = body.data.items.filter(i => {
                 // Jane
