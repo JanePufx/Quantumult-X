@@ -33,7 +33,16 @@ if (!body) {
             console.log(`body:${$response.body}`);
         } else {
             body.data.appconfig.hpConfig.list = body.data.appconfig.hpConfig.list.filter(item => {
-                if (['微应用', '关注', '微读书', '知视频'].includes(item.name)) {
+                if (item.name === '微应用') {
+                    return false;
+                }
+                if (item.name === '关注') {
+                    return false;
+                }
+                if (item.name === '微读书') {
+                    return false;
+                }
+                if (item.name === '微视频') {
                     return false;
                 }
                 return true;
