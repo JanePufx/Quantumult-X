@@ -1,6 +1,9 @@
 const url = $request.url;
 const method = $request.method;
 const notifyTitle = "bilibili-json";
+const key_words = ['TFBOYS', '波奇', '孤独'];
+const up_uid = ['2571478','6574487', '450882837', '37119626', '476993587', '3493277586164423', '385105236', '13972445', '43707221', '390461123', '630721866', '6087825', '1428923', '170801610', '317839021', '602664449', '443462760', '255508156', '1213489275', '204408558', '1985025', '314298412', '251569233', '1939319', '382953284', '163637592', '446430908', '8366990', '1192648858'];
+
 console.log(`b站json-2023.03.24`);
 if (!$response.body) {
     // 有undefined的情况
@@ -76,20 +79,18 @@ if (!body.data) {
             body.data.items = body.data.items.filter(i => {
                 
                 // Jane
-                const key_words = ['TFBOYS', '波奇', '孤独'];
                 if(i.title){
                     console.log(`video title:${i.title}`);
                     // 屏蔽视频 关键字方式
-                    if (key_words.indexOf(i.title) !== -1) {
+                    if (key_words.includes(i.title)) {
                         console.log(`已屏蔽视频:${i.title}！！！`);
                         return false;
                     }
                 }
-                const up_uid = ['2571478','6574487', '450882837', '37119626', '476993587', '3493277586164423', '385105236', '13972445', '43707221', '390461123', '630721866', '6087825', '1428923', '170801610', '317839021', '602664449', '443462760', '255508156', '1213489275', '204408558', '1985025', '314298412', '251569233', '1939319', '382953284', '163637592', '446430908', '8366990', '1192648858'];
                 if(i.args){
                     console.log(`up name:${i.args.up_name} uid:${i.args.up_id}`);
                     // 屏蔽up uid方式
-                    if (up_uid.indexOf(i.args.up_id) !== -1) {
+                    if (up_uid.includes(i.args.up_id)) {
                         console.log(`已屏蔽up:${i.args.up_name}！！！`);
                         return false;
                     }
