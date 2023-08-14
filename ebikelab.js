@@ -21,13 +21,15 @@ if (!body) {
         if (!body.data) {
             console.log(`body:${$response.body}`);
         } else {
-            console.log(`body:${body.data}`);
+            //console.log(`body:${body.data}`);
             body.data = body.data.filter(item => {
-                console.log(`item:${item}`);
+                //console.log(`item:${item}`);
                 if (item.name === '充值特惠') {
+                    console.log(`item:${item.name}`);
                     return false;
                 }
                 if (item.name === '卡券商城') {
+                    console.log(`item:${item.name}`);
                     return false;
                 }
                 return true;
