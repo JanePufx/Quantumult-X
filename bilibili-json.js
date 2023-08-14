@@ -133,7 +133,10 @@ if (!body.data) {
                 return true;
             });
         }
-    } 
+    } else {
+        $notification.post(notifyTitle, "路径匹配错误:", url);
+    }
+    
     if (url.includes("x/v2/feed/index")) {
         if (!body.data.items?.length) {
         } else {
@@ -158,8 +161,6 @@ if (!body.data) {
                 return true;
             });
         }
-    }else {
-        $notification.post(notifyTitle, "路径匹配错误:", url);
     }
 }
 
