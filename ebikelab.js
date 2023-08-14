@@ -13,7 +13,7 @@ if (method !== "GET") {
 let body = JSON.parse($response.body);
 
 
-if (body) {
+if (!body) {
     console.log(url);
     console.log(`body:${$response.body}`);
 } else {
@@ -21,7 +21,9 @@ if (body) {
         if (!body.data) {
             console.log(`body:${$response.body}`);
         } else {
+            console.log(`body:${body.data}`);
             body.data = body.data.filter(item => {
+                console.log(`item:${item}`);
                 if (item.name === '充值特惠') {
                     return false;
                 }
