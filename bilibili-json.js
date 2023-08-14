@@ -154,6 +154,7 @@ if (!body.data) {
             });
         }
     }
+    // Jane
     else if (url.includes("x/v2/account/mine")) {
         console.log('我的页面');
         if (!body.data.sections_v2) {
@@ -162,8 +163,24 @@ if (!body.data) {
         } else {
             body.data.sections_v2 = body.data.sections_v2.filter(i => {
                 i.items = i.items.filter(j => {
-                    if (j.title === '开播福利') {
-                        console.log('去除开播福利');
+                    //去除稍后再看
+                    if (['稍后再看'].includes(j.title)) {
+                        console.log('去除稍后再看');
+                        return false;
+                    }
+                    // 去除创作中心
+                    if (['创作中心', '稿件管理', '任务中心', '有奖活动', '开播福利', '主播中心', '直播数据', '主播活动'].includes(j.title)) {
+                        console.log('去除创作中心');
+                        return false;
+                    }
+                    // 去除推荐服务
+                    if (['我的课程', '看视频免流量', '邀好友赚红包', '游戏中心', '会员购中心', '我的直播', '能量加油站', '时光照相馆'].includes(j.title)) {
+                        console.log('去除推荐服务');
+                        return false;
+                    }
+                    // 去除更多服务
+                    if (['青少年守护'].includes(j.title)) {
+                        console.log('去除更多服务');
                         return false;
                     }
                     return true;
