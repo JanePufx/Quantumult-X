@@ -8,12 +8,12 @@ if (!$response.body) {
     $done({});
 }
 if (method !== "GET") {
-    console.log(`${notifyTitle}method错误:${method}`);
+    console.log(`${notifyTitle}-method错误:${method}`);
 }
 let body = JSON.parse($response.body);
 
 
-if (!body) {
+if (body) {
     console.log(url);
     console.log(`body:${$response.body}`);
 } else {
