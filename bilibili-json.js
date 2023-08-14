@@ -81,7 +81,7 @@ if (!body.data) {
                 if(i.title){
                     // console.log(`video title:${i.title}`);
                     // 屏蔽视频 关键字方式
-                    if (['TFBOYS', '波奇', '孤独摇滚','山田凉','4','京','网','轻'].includes(i.title)) {
+                    if (['TFBOYS'].includes(i.title)) {
                         console.log(`！！！--已屏蔽视频:${i.title}--！！！`);
                         return false;
                     }
