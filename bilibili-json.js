@@ -174,7 +174,7 @@ if (!body.data) {
                         return false;
                     }
                     // 去除推荐服务
-                    if (['我的课程', '看视频免流量', '邀好友赚红包', '游戏中心', '会员购中心', '我的直播', '能量加油站', '时光照相馆'].includes(j.title)) {
+                    if (['我的课程', '看视频免流量', '邀好友赚红包', '游戏中心', '会员购中心', '我的直播', '工坊', '能量加油站', '时光照相馆'].includes(j.title)) {
                         console.log('去除推荐服务');
                         return false;
                     }
@@ -185,6 +185,9 @@ if (!body.data) {
                     }
                     return true;
                 })
+                if (['创作中心'].includes(i.title)){
+                    return false
+                }
                 return true;
             });
         }
