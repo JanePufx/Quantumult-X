@@ -118,7 +118,7 @@ if (!body.data) {
                     // }
                 // } else 
                 if (cardType && cardGoto) {
-                    if ((cardType === 'banner_v8' || cardType === 'banner_ipad_v8') && cardGoto === 'banner') {
+                    if (cardType === 'banner_v8' && cardGoto === 'banner') {
                         if (!i.banner_item) {
                             console.log(`body:${$response.body}`);
                             $notification.post(notifyTitle, '推荐页', "banner_item错误");
