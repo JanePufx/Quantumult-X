@@ -185,6 +185,9 @@ if (!body.data) {
                     }
                     return true;
                 })
+                if (['创作中心'].includes(i.up_title)){
+                    i.up_title = "";
+                }
                 if (['创作中心', '推荐服务', '更多服务'].includes(i.title)){
                     i.title = "";
                 }
