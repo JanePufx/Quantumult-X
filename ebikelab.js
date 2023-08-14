@@ -29,6 +29,7 @@ if (!body) {
                 }
                 return true;
             });
+            fixPos(body.data);
         }
     } 
 }
@@ -37,3 +38,10 @@ body = JSON.stringify(body);
 $done({
     body
 });
+
+function fixPos(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        // 修复pos
+        arr[i].pos = i + 1;
+    }
+}
