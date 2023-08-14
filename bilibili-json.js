@@ -100,22 +100,23 @@ if (!body.data) {
             body.data.items = body.data.items.filter(i => {
                 const {card_type: cardType, card_goto: cardGoto} = i;
                 // Jane
-                if(i.title){
+                // if(i.title){
                     // console.log(`video title:${i.title}`);
                     // 屏蔽视频 关键字方式
-                    if (['开端'].includes(i.title)) {
-                        console.log(`！！！--已屏蔽视频:${i.title}--！！！`);
-                        return false;
-                    }
-                }
-                if(i.args){
+                    // if (['开端'].includes(i.title)) {
+                        // console.log(`！！！--已屏蔽视频:${i.title}--！！！`);
+                        // return false;
+                    // }
+                // }
+                // if(i.args){
                     // console.log(`up name:${i.args.up_name} uid:${i.args.up_id}`);
                     // 屏蔽up uid方式
-                    if (up_uid.includes(i.args.up_id)) {
-                        console.log(`！！！--已屏蔽up:${i.args.up_name}--！！！`);
-                        return false;
-                    }
-                } else if (cardType && cardGoto) {
+                    // if (up_uid.includes(i.args.up_id)) {
+                        // console.log(`！！！--已屏蔽up:${i.args.up_name}--！！！`);
+                        // return false;
+                    // }
+                // } else 
+                if (cardType && cardGoto) {
                     // 增加ipad适配
                     if (cardType === 'banner_v8' || 'banner_ipad_v8' && cardGoto === 'banner') {
                         if (!i.banner_item) {
@@ -153,21 +154,24 @@ if (!body.data) {
             });
         }
     }
-    // } else if (url.includes("x/v2/account/mine")) {
-    //     console.log('我的页面');
-    //     if (!body.data.sections_v2) {
-    //         console.log(`body:${$response.body}`);
-    //         $notification.post(notifyTitle, 'tab', "top字段错误");
-    //     } else {
-    //         body.data.sections_v2 = body.data.sections_v2.filter(item => {
-    //             if (item.title === '开播福利') {
-    //                 console.log('去除开播福利');
-    //                 return false;
-    //             }
-    //             return true;
-    //         });
-    //     }
-    // } 
+    else if (url.includes("x/v2/account/mine")) {
+        console.log('我的页面');
+        if (!body.data.sections_v2) {
+            console.log(`body:${$response.body}`);
+            $notification.post(notifyTitle, 'tab', "top字段错误");
+        } else {
+            body.data.sections_v2 = body.data.sections_v2.filter(i => {
+                i.items = i.items.filter(j => {
+                    if (j.title === '开播福利') {
+                        console.log('去除开播福利');
+                        return false;
+                    }
+                    return true;
+                })
+                return true;
+            });
+        }
+    } 
         else {
             $notification.post(notifyTitle, "路径匹配错误:", url);
     }
