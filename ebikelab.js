@@ -8,7 +8,7 @@ if (!$response.body) {
     $done({});
 }
 if (method !== "GET") {
-    $notification.post(notifyTitle, "method错误:", method);
+    $notify.post(notifyTitle, "method错误:", method);
 }
 let body = JSON.parse($response.body);
 
