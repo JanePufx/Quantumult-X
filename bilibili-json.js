@@ -154,12 +154,12 @@ if (!body.data) {
         }
     } else if (url.includes("x/v2/account/mine")) {
         console.log('我的页面');
-        if (!body.data.sections_v2.items) {
+        if (!body.data.sections_v2) {
             console.log(`body:${$response.body}`);
             $notification.post(notifyTitle, 'tab', "top字段错误");
         } else {
-            body.data.sections_v2.items = body.data.sections_v2.items.filter(item => {
-                if (item.title === '开播福利') {
+            body.data.sections_v2 = body.data.sections_v2.filter(item => {
+                if (item.items.title === '开播福利') {
                     console.log('去除开播福利');
                     return false;
                 }
