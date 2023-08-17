@@ -98,6 +98,13 @@ if (!body.data) {
             $notification.post(notifyTitle, '推荐页', "items字段错误");
         } else {
             body.data.items = body.data.items.filter(i => {
+                if(i.args){
+                    console.log(`up name:${i.args.up_name} uid:${i.args.up_id}`);
+                    // 屏蔽up uid方式
+                    if (up_uid.includes(i.args.up_id)) {
+                        console.log(`！！！--已屏蔽up:${i.args.up_name}--！！！`);
+                        return false;
+                    }
                 const {card_type: cardType, card_goto: cardGoto} = i;
                 // Jane
                 // if(i.title){
@@ -109,13 +116,7 @@ if (!body.data) {
                         //return false;
                     // }
                 // }
-                if(i.args){
-                    console.log(`up name:${i.args.up_name} uid:${i.args.up_id}`);
-                    // 屏蔽up uid方式
-                    if (up_uid.includes(i.args.up_id)) {
-                        console.log(`！！！--已屏蔽up:${i.args.up_name}--！！！`);
-                        return false;
-                    }
+                
                 // } else 
                 if (cardType && cardGoto) {
                     if (cardType === 'banner_v8' && cardGoto === 'banner') {
