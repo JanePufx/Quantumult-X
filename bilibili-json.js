@@ -109,13 +109,13 @@ if (!body.data) {
                         //return false;
                     // }
                 // }
-                // if(i.args){
-                    // console.log(`up name:${i.args.up_name} uid:${i.args.up_id}`);
+                if(i.args){
+                    console.log(`up name:${i.args.up_name} uid:${i.args.up_id}`);
                     // 屏蔽up uid方式
-                    // if (up_uid.includes(i.args.up_id)) {
-                        // console.log(`！！！--已屏蔽up:${i.args.up_name}--！！！`);
-                        // return false;
-                    // }
+                    if (up_uid.includes(i.args.up_id)) {
+                        console.log(`！！！--已屏蔽up:${i.args.up_name}--！！！`);
+                        return false;
+                    }
                 // } else 
                 if (cardType && cardGoto) {
                     if (cardType === 'banner_v8' && cardGoto === 'banner') {
