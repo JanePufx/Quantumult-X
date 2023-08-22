@@ -7,6 +7,9 @@ hostname = ebike-client.xiaoantech.com
 
 # 优化界面元素
 
+# -> 车辆使用规范须知
+^https:\/\/ebike-client\.xiaoantech\.com\/client\/helpConfig\/getGuidePageConfigByServiceId url reject-dict
+
 ^https:\/\/ebike-client\.xiaoantech\.com\/client\/helpConfig\/getHomeScrollerMsgByServiceId url reject-dict
 
 # -> 计费说明
@@ -17,8 +20,8 @@ hostname = ebike-client.xiaoantech.com
 ^https:\/\/ebike-client\.xiaoantech\.com\/client\/helpConfig\/getCardPromoteConfigByServiceId url reject-dict
 
 # -> 充值特惠 | 卡券商城 | 编号开锁 | 客服中心 | 消息中心
-^https:\/\/ebike-client\.xiaoantech\.com\/client\/helpConfig\/getHomeNavByServiceId url script-response-body https://raw.githubusercontent.com/JanePufx/Quantumult-X/main/ebikelab.js
-# ^https:\/\/ebike-client\.xiaoantech\.com\/client\/helpConfig\/getHomeNavByServiceId url reject-dict
+# ^https:\/\/ebike-client\.xiaoantech\.com\/client\/helpConfig\/getHomeNavByServiceId url script-response-body https://raw.githubusercontent.com/JanePufx/Quantumult-X/main/ebikelab.js
+^https:\/\/ebike-client\.xiaoantech\.com\/client\/helpConfig\/getHomeNavByServiceId url reject-dict
 
 # -> 超值骑行卡套餐 | 充值骑行更省心
 ^https:\/\/ebike-client\.xiaoantech\.com\/client\/fence\/resource\/management\/appList url reject-dict
