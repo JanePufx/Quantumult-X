@@ -150,21 +150,22 @@ up_name 视频作者名字
 up_id 视频作者uid
 */   
       obj.data.items = obj.data.items.filter((i) => {
-        const { card_type: cardType, card_goto: cardGoto, title, args.up_id, args.up_name } = i;
+        const { card_type: cardType, card_goto: cardGoto, title, args } = i;
+        const { up_id, up_name } = args;
         if (cardType && cardGoto) {
           if (
             keywordsToMatch.some((keyword) => title && title.includes(keyword)) //||
-            //(args.up_name && 
-             // ["炉石Kimmy", "狂野saiwei", "矮矮的桔子", "o冷月追风oO", "小凌漆漆", "大大怪怪怪将军", "我是TOO" /* Add more up_name values here */].includes(args.up_name)) ||
+            (up_name && 
+             ["炉石Kimmy", "狂野saiwei", "矮矮的桔子", "o冷月追风oO", "小凌漆漆", "大大怪怪怪将军", "我是TOO" /* Add more up_name values here */].includes(up_name)) ||
             
             
-            //(args.up_id && 
-              //[/* Add more up_id values here */].includes(args.up_id))
+            (up_id && 
+              [/* Add more up_id values here */].includes(up_id))
           ) {
             // Filter out items with any of the specified keywords in the title or specified up_id values
             console.log(`屏蔽视频title:${title}`);
-            console.log(`屏蔽视频作者:${args.up_name}`);
-            console.log(`屏蔽视频作者uid:${args.up_id}`);
+            console.log(`屏蔽视频作者:${up_name}`);
+            console.log(`屏蔽视频作者uid:${up_id}`);
             return false;
           } else if (cardType.includes("banner") && cardGoto.includes("banner")) {
             // 去除判断条件 首页横版内容全部去掉
