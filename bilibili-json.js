@@ -142,7 +142,7 @@ if (url.includes("/x/resource/show/skin")) {
     // 推荐广告
     if (obj.data?.items) {
       // Define an array of keywords to match in the title
-      const keywordsToMatch = ["李佳琦", "花西子", "蒋小鱼", "龙队", "iPhone15", "电棍", "otto"]; // Add more keywords as needed
+      const keywordsToMatch = ["李佳琦", "花西子", "蒋小鱼", "龙队", "iPhone15", "电棍", "otto", "宋焰", "许沁", "我的人间烟火"]; // Add more keywords as needed
 /*
 过滤规则仅自用，不对任何作者及其视频有恶意
 keywordsToMatc 视频title中包含的关键字
