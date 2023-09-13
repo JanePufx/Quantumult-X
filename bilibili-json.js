@@ -142,33 +142,32 @@ if (url.includes("/x/resource/show/skin")) {
     // 推荐广告
     if (obj.data?.items) {
       // Define an array of keywords to match in the title
-      const keywordsToMatch = ["李佳琦", "花西子", "蒋小鱼", "龙队", "iPhone15", "电棍", "otto", "宋焰", "许沁", "我的人间烟火", "小太妹", "周姐", "桀"]; // Add more keywords as needed
+      const keywordsToMatch = ["李佳琦", "花西子", "蒋小鱼", "龙队", "iPhone15", "电棍", "otto", "宋焰", "许沁", "我的人间烟火", "小太妹", "周姐", "超级小桀", "桀割", "桀哥", "小桀", "崩坏", "Infuse", "命运石之门", "变形重组器", "iPhone 15", "Mate60", "Mate 60", "王者荣耀", "A17", "asmr", "alist"]; // Add more keywords as needed
 /*
 过滤规则仅自用，不对任何作者及其视频有恶意
-keywordsToMatc 视频title中包含的关键字
+keywordsToMatch 视频title中包含的关键字
 up_name 视频作者名字
 up_id 视频作者uid
 */   
       obj.data.items = obj.data.items.filter((i) => {
-        const { card_type: cardType, card_goto: cardGoto, title, args } = i;
+        const { card_type: cardType, card_goto: cardGoto, title, args, talk_back } = i;
         const { up_id, up_name } = args;
         if (cardType && cardGoto) {
           if (
             keywordsToMatch.some((keyword) => title && title.includes(keyword)) ||
-            (up_name && 
-             ["炉石Kimmy", "狂野saiwei", "矮矮的桔子", "o冷月追风oO", "小凌漆漆", "大大怪怪怪将军", "我是TOO", "硬汉形象26" /* Add more up_name values here */].includes(up_name)) ||
-            
-            
-            (up_id && 
-              [/* Add more up_id values here */].includes(up_id))
+            (up_name && ["炉石Kimmy", "狂野saiwei", "矮矮的桔子", "o冷月追风oO", "小凌漆漆", "大大怪怪怪将军", "我是TOO", "硬汉形象26", "黑黑黑黑莲", "佐助Sama", "炉石萌萌哒的狗贼", "uTools", "老实憨厚的笑笑", "莴苣某人", "22林酱", "小鱼一图流" /* Add more up_name values here */].includes(up_name)) ||
+            (up_id && [/* Add more up_id values here */].includes(up_id))
           ) {
             // Filter out items with any of the specified keywords in the title or specified up_id values
             console.log(`
-              屏蔽视频title:${title}\n
-              屏蔽视频作者:${up_name}\n
-              屏蔽视频作者uid:${up_id}`);
+            屏蔽视频title:${title}\n屏蔽视频作者:${up_name}\n屏蔽视频作者uid:${up_id}`);
             return false;
-          } else if (cardType.includes("banner") && cardGoto.includes("banner")) {
+          } else if (talk_back.includes("竖版视频"){
+            console.log(`
+            屏蔽竖版视频title:${title}\n屏蔽竖版视频作者:${up_name}\n屏蔽竖版视频作者uid:${up_id}`);
+            return false;
+          }
+          else if (cardType.includes("banner") && cardGoto.includes("banner")) {
             // 去除判断条件 首页横版内容全部去掉
             return false;
           } else if (
