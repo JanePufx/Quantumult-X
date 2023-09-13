@@ -156,7 +156,7 @@ up_id 视频作者uid
           if (
             keywordsToMatch.some((keyword) => title && title.includes(keyword)) ||
             (up_name && 
-             ["炉石Kimmy", "狂野saiwei", "矮矮的桔子", "o冷月追风oO", "小凌漆漆", "大大怪怪怪将军", "我是TOO" /* Add more up_name values here */].includes(up_name)) ||
+             ["炉石Kimmy", "狂野saiwei", "矮矮的桔子", "o冷月追风oO", "小凌漆漆", "大大怪怪怪将军", "我是TOO", “硬汉形象26” /* Add more up_name values here */].includes(up_name)) ||
             
             
             (up_id && 
