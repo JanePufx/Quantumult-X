@@ -152,6 +152,7 @@ if (url.includes("/x/resource/show/skin")) {
             (up_id && [241880007, /* Add more up_id values here */].includes(up_id))
           ) {
             // Filter out items with any of the specified keywords in the title or specified up_id values
+            console.log(`去除item:${title}`);
             return false;
           } else if (cardType.includes("banner") && cardGoto.includes("banner")) {
             // 去除判断条件 首页横版内容全部去掉
