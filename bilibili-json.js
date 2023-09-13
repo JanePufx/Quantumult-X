@@ -151,7 +151,7 @@ if (url.includes("/x/resource/show/skin")) {
       const keywordsToMatch = ["李佳琦", "花西子", "蒋小鱼", "龙队", "iPhone15", "电棍", "otto", "宋焰", "许沁", "我的人间烟火", "小太妹", "周姐", "超级小桀", "桀割", "桀哥", "小桀", "崩坏", "Infuse", "命运石之门", "变形重组器", "iPhone 15", "Mate60", "Mate 60", "王者荣耀", "A17", "asmr", "alist", "周淑怡", "pgone", "MMORPG", "星穹铁道", "mate60", "Procreate Dreams", "海贼王", "路飞", "凯多", "EVA", "卡贴机", "小超梦", "伍佰", "悬溺", "博人传", "无畏契约", "YJJ", "网红积分", "游戏王", "oi", "华晨宇", "丁真", "Uzi", "TikTok", "魔兽世界", "Dota2", "overlord", "彩虹六号", "吕子乔", "爱情公寓", "曾小贤", "王传君", "岳云鹏", "一口气看完"]; // Add more keywords as needed
  
       obj.data.items = obj.data.items.filter((i) => {
-        const { card_type: cardType, card_goto: cardGoto, title, args, talk_back: talkBack } = i;
+        const { card_type: cardType, card_goto: cardGoto, title, args} = i;
         const { up_id, up_name } = args;
         if (cardType && cardGoto) {
           if (
@@ -162,10 +162,6 @@ if (url.includes("/x/resource/show/skin")) {
             // Filter out items with any of the specified keywords in the title or specified up_id values
             console.log(`
             屏蔽视频title:${title}\n屏蔽视频作者:${up_name}\n屏蔽视频作者uid:${up_id}`);
-            return false;
-          } else if (talkBack.includes("竖版视频")) {
-            console.log(`
-            屏蔽竖版视频title:${title}\n屏蔽竖版视频作者:${up_name}\n屏蔽竖版视频作者uid:${up_id}`);
             return false;
           } else if (cardType.includes("banner") && cardGoto.includes("banner")) {
             // 去除判断条件 首页横版内容全部去掉
