@@ -154,7 +154,7 @@ up_id 视频作者uid
         const { up_id, up_name } = args;
         if (cardType && cardGoto) {
           if (
-            keywordsToMatch.some((keyword) => title && title.includes(keyword)) //||
+            keywordsToMatch.some((keyword) => title && title.includes(keyword)) ||
             (up_name && 
              ["炉石Kimmy", "狂野saiwei", "矮矮的桔子", "o冷月追风oO", "小凌漆漆", "大大怪怪怪将军", "我是TOO" /* Add more up_name values here */].includes(up_name)) ||
             
