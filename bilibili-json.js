@@ -162,12 +162,11 @@ up_id 视频作者uid
             console.log(`
             屏蔽视频title:${title}\n屏蔽视频作者:${up_name}\n屏蔽视频作者uid:${up_id}`);
             return false;
-          } else if (talk_back.includes("竖版视频"){
+          } else if (talk_back.includes("竖版视频")) {
             console.log(`
             屏蔽竖版视频title:${title}\n屏蔽竖版视频作者:${up_name}\n屏蔽竖版视频作者uid:${up_id}`);
             return false;
-          }
-          else if (cardType.includes("banner") && cardGoto.includes("banner")) {
+          } else if (cardType.includes("banner") && cardGoto.includes("banner")) {
             // 去除判断条件 首页横版内容全部去掉
             return false;
           } else if (
