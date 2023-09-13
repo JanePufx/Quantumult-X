@@ -141,16 +141,17 @@ if (url.includes("/x/resource/show/skin")) {
 } else if (url.includes("/x/v2/feed/index?")) {
     // 推荐广告
     if (obj.data?.items) {
+      /*
+      过滤规则仅自用，不对任何作者及其视频有恶意
+      keywordsToMatch 视频title中包含的关键字
+      up_name 视频作者名字
+      up_id 视频作者uid
+      */  
       // Define an array of keywords to match in the title
       const keywordsToMatch = ["李佳琦", "花西子", "蒋小鱼", "龙队", "iPhone15", "电棍", "otto", "宋焰", "许沁", "我的人间烟火", "小太妹", "周姐", "超级小桀", "桀割", "桀哥", "小桀", "崩坏", "Infuse", "命运石之门", "变形重组器", "iPhone 15", "Mate60", "Mate 60", "王者荣耀", "A17", "asmr", "alist", "周淑怡", "pgone", "MMORPG", "星穹铁道", "mate60", "Procreate Dreams", "海贼王", "路飞", "凯多", "EVA", "卡贴机", "小超梦", "伍佰", "悬溺", "博人传", "无畏契约", "YJJ", "网红积分", "游戏王", "oi", "华晨宇", "丁真", "Uzi", "TikTok", "魔兽世界", "Dota2", "overlord", "彩虹六号", "吕子乔", "爱情公寓", "曾小贤", "王传君", "岳云鹏", "一口气看完"]; // Add more keywords as needed
-/*
-过滤规则仅自用，不对任何作者及其视频有恶意
-keywordsToMatch 视频title中包含的关键字
-up_name 视频作者名字
-up_id 视频作者uid
-*/   
+ 
       obj.data.items = obj.data.items.filter((i) => {
-        const { card_type: cardType, card_goto: cardGoto, title, args, talk_back } = i;
+        const { card_type: cardType, card_goto: cardGoto, title, args, talk_back: talkBack } = i;
         const { up_id, up_name } = args;
         if (cardType && cardGoto) {
           if (
@@ -162,7 +163,7 @@ up_id 视频作者uid
             console.log(`
             屏蔽视频title:${title}\n屏蔽视频作者:${up_name}\n屏蔽视频作者uid:${up_id}`);
             return false;
-          } else if (talk_back.includes("竖版视频")) {
+          } else if (talkBack.includes("竖版视频")) {
             console.log(`
             屏蔽竖版视频title:${title}\n屏蔽竖版视频作者:${up_name}\n屏蔽竖版视频作者uid:${up_id}`);
             return false;
