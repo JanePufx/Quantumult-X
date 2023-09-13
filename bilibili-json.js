@@ -153,13 +153,13 @@ up_id 视频作者uid
         const { card_type: cardType, card_goto: cardGoto, title, args.up_id, args.up_name } = i;
         if (cardType && cardGoto) {
           if (
-            keywordsToMatch.some((keyword) => title && title.includes(keyword)) ||
-            (args.up_name && 
-              ["炉石Kimmy", "狂野saiwei", "矮矮的桔子", "o冷月追风oO", "小凌漆漆", "大大怪怪怪将军", "我是TOO" /* Add more up_name values here */].includes(args.up_name)) ||
+            keywordsToMatch.some((keyword) => title && title.includes(keyword)) //||
+            //(args.up_name && 
+             // ["炉石Kimmy", "狂野saiwei", "矮矮的桔子", "o冷月追风oO", "小凌漆漆", "大大怪怪怪将军", "我是TOO" /* Add more up_name values here */].includes(args.up_name)) ||
             
             
-            (args.up_id && 
-              [/* Add more up_id values here */].includes(args.up_id))
+            //(args.up_id && 
+              //[/* Add more up_id values here */].includes(args.up_id))
           ) {
             // Filter out items with any of the specified keywords in the title or specified up_id values
             console.log(`屏蔽视频title:${title}`);
