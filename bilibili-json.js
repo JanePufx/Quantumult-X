@@ -142,7 +142,7 @@ if (url.includes("/x/resource/show/skin")) {
     // 推荐广告
     if (obj.data?.items) {
       // Define an array of keywords to match in the title
-      const keywordsToMatch = ["李佳琦", "花西子", "蒋小鱼", "龙队", "iPhone15", "电棍", "otto", "宋焰", "许沁", "我的人间烟火", "小太妹", "周姐", "超级小桀", "桀割", "桀哥", "小桀", "崩坏", "Infuse", "命运石之门", "变形重组器", "iPhone 15", "Mate60", "Mate 60", "王者荣耀", "A17", "asmr", "alist"]; // Add more keywords as needed
+      const keywordsToMatch = ["李佳琦", "花西子", "蒋小鱼", "龙队", "iPhone15", "电棍", "otto", "宋焰", "许沁", "我的人间烟火", "小太妹", "周姐", "超级小桀", "桀割", "桀哥", "小桀", "崩坏", "Infuse", "命运石之门", "变形重组器", "iPhone 15", "Mate60", "Mate 60", "王者荣耀", "A17", "asmr", "alist", "周淑怡", "pgone", "MMORPG", "星穹铁道", "mate60", "Procreate Dreams", "海贼王", "路飞", "凯多", "EVA", "卡贴机", "小超梦", "伍佰", "悬溺", "博人传", "无畏契约", "YJJ", "网红积分", "游戏王", "oi", "华晨宇", "丁真", "Uzi", "TikTok", "魔兽世界", "Dota2", "overlord", "彩虹六号", "吕子乔", "爱情公寓", "曾小贤", "王传君", "岳云鹏", "一口气看完"]; // Add more keywords as needed
 /*
 过滤规则仅自用，不对任何作者及其视频有恶意
 keywordsToMatch 视频title中包含的关键字
@@ -155,7 +155,7 @@ up_id 视频作者uid
         if (cardType && cardGoto) {
           if (
             keywordsToMatch.some((keyword) => title && title.includes(keyword)) ||
-            (up_name && ["炉石Kimmy", "狂野saiwei", "矮矮的桔子", "o冷月追风oO", "小凌漆漆", "大大怪怪怪将军", "我是TOO", "硬汉形象26", "黑黑黑黑莲", "佐助Sama", "炉石萌萌哒的狗贼", "uTools", "老实憨厚的笑笑", "莴苣某人", "22林酱", "小鱼一图流" /* Add more up_name values here */].includes(up_name)) ||
+            (up_name && ["炉石Kimmy", "狂野saiwei", "矮矮的桔子", "o冷月追风oO", "小凌漆漆", "大大怪怪怪将军", "我是TOO", "硬汉形象26", "黑黑黑黑莲", "佐助Sama", "炉石萌萌哒的狗贼", "uTools", "老实憨厚的笑笑", "莴苣某人", "22林酱", "小鱼一图流", "林小北Lindo", "鲁大能", "牛牛牛牛牛牛弟", "炉石传说瓦莉拉", "兰林汉的粉丝", "一数", "云顶王天师", "我是小河灵", "阿助今天有工资吗", "小紧张的虫虫" /* Add more up_name values here */].includes(up_name)) ||
             (up_id && [/* Add more up_id values here */].includes(up_id))
           ) {
             // Filter out items with any of the specified keywords in the title or specified up_id values
