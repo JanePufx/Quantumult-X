@@ -142,7 +142,7 @@ if (url.includes("/x/resource/show/skin")) {
     // 推荐广告
     if (obj.data?.items) {
       // Define an array of keywords to match in the title
-      const keywordsToMatch = ["端王", "关键词2", "关键词3"]; // Add more keywords as needed
+      const keywordsToMatch = ["孤独", "摇滚", "波奇"]; // Add more keywords as needed
   
       obj.data.items = obj.data.items.filter((i) => {
         const { card_type: cardType, card_goto: cardGoto, title, up_id } = i;
