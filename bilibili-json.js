@@ -141,28 +141,32 @@ if (url.includes("/x/resource/show/skin")) {
 } else if (url.includes("/x/v2/feed/index?")) {
     // 推荐广告
     if (obj.data?.items) {
-      /*
-      过滤规则仅自用，不对任何作者及其视频有恶意
-      keywordsToMatch 视频title中包含的关键字
-      up_name 视频作者名字
-      up_id 视频作者uid
-      */  
       // Define an array of keywords to match in the title
-      const keywordsToMatch = ["李佳琦", "花西子", "蒋小鱼", "龙队", "iPhone15", "电棍", "otto", "宋焰", "许沁", "我的人间烟火", "小太妹", "周姐", "超级小桀", "桀割", "桀哥", "小桀", "崩坏", "Infuse", "命运石之门", "变形重组器", "iPhone 15", "Mate60", "Mate 60", "王者荣耀", "A17", "asmr", "alist", "周淑怡", "pgone", "MMORPG", "星穹铁道", "mate60", "Procreate Dreams", "海贼王", "路飞", "凯多", "EVA", "卡贴机", "小超梦", "伍佰", "悬溺", "博人传", "无畏契约", "YJJ", "网红积分", "游戏王", "oi", "华晨宇", "丁真", "Uzi", "TikTok", "魔兽世界", "Dota2", "overlord", "彩虹六号", "吕子乔", "爱情公寓", "曾小贤", "王传君", "岳云鹏", "一口气看完", "pg", "司空震", "进击的巨人", "APEX", "预制菜", "哈哟", "明日香", "野球帝", "逃离塔科夫", "汪苏泷", "神超", "CS2", "狗头萝莉", "FGO", "炉石传说", "B760", "JOJO", "碧蓝航线", "明日方舟", "王源", "王俊凯", "易烊千玺", "四字", "二字", "金河田电源", "绫波丽", "星际争霸", "辛普森一家", "神棍老师", "衣锦夜行", "死神来了", "赛马娘"]; // Add more keywords as needed
- 
+      const keywordsToMatch = ["李佳琦", "花西子", "蒋小鱼", "龙队", "iPhone15", "电棍", "otto", "宋焰", "许沁", "我的人间烟火", "小太妹", "周姐", "超级小桀", "桀割", "桀哥", "小桀", "崩坏", "Infuse", "命运石之门", "变形重组器", "iPhone 15", "Mate60", "Mate 60", "王者荣耀", "A17", "asmr", "alist"]; // Add more keywords as needed
+/*
+过滤规则仅自用，不对任何作者及其视频有恶意
+keywordsToMatch 视频title中包含的关键字
+up_name 视频作者名字
+up_id 视频作者uid
+*/   
       obj.data.items = obj.data.items.filter((i) => {
-        const { card_type: cardType, card_goto: cardGoto, title, args} = i;
+        const { card_type: cardType, card_goto: cardGoto, title, args, talk_back } = i;
         const { up_id, up_name } = args;
         if (cardType && cardGoto) {
           if (
             keywordsToMatch.some((keyword) => title && title.includes(keyword)) ||
-            (up_name && ["炉石Kimmy", "狂野saiwei", "矮矮的桔子", "o冷月追风oO", "小凌漆漆", "大大怪怪怪将军", "我是TOO", "硬汉形象26", "黑黑黑黑莲", "佐助Sama", "炉石萌萌哒的狗贼", "uTools", "老实憨厚的笑笑", "莴苣某人", "22林酱", "小鱼一图流", "林小北Lindo", "鲁大能", "牛牛牛牛牛牛弟", "炉石传说瓦莉拉", "兰林汉的粉丝", "一数", "云顶王天师", "我是小河灵", "阿助今天有工资吗", "小紧张的虫虫", "往往老布", "云顶丶小白", "单走一张六", "你的影月月", "炉石涛妹", "柳岩LIUYAN", "何胜0423", "云顶魔术师黄莲", "铠甲勇士-奥飞" /* Add more up_name values here */].includes(up_name)) ||
+            (up_name && ["炉石Kimmy", "狂野saiwei", "矮矮的桔子", "o冷月追风oO", "小凌漆漆", "大大怪怪怪将军", "我是TOO", "硬汉形象26", "黑黑黑黑莲", "佐助Sama", "炉石萌萌哒的狗贼", "uTools", "老实憨厚的笑笑", "莴苣某人", "22林酱", "小鱼一图流" /* Add more up_name values here */].includes(up_name)) ||
             (up_id && [/* Add more up_id values here */].includes(up_id))
           ) {
             // Filter out items with any of the specified keywords in the title or specified up_id values
-            console.log(`屏蔽视频title:${title}\n屏蔽视频作者:${up_name}\n屏蔽视频作者uid:${up_id}`);
+            console.log(`\n屏蔽视频title:${title}\n屏蔽视频作者:${up_name}\n屏蔽视频作者uid:${up_id}`);
             return false;
-          } else if (cardType.includes("banner") && cardGoto.includes("banner")) {
+          } else if (talk_back.includes("竖版视频"){
+            console.log(`
+            屏蔽竖版视频title:${title}\n屏蔽竖版视频作者:${up_name}\n屏蔽竖版视频作者uid:${up_id}`);
+            return false;
+          }
+          else if (cardType.includes("banner") && cardGoto.includes("banner")) {
             // 去除判断条件 首页横版内容全部去掉
             return false;
           } else if (
