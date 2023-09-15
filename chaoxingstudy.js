@@ -27,10 +27,11 @@ if (!body) {
     console.log(url);
     console.log(`body:${$response.body}`);
 } else {
-    if (url.includes("apis/service/appConfig?")) {
+    if (url.includes("apis/service/appConfig")) {
         if (!body.data) {
             console.log(`body:${$response.body}`);
         } else if (!body.data.ad){
+            console.log(`body:${$response.body}`);
             data.ad = data.ad.filter((i) => {
             if (i.duration = '0'){
                 return false
