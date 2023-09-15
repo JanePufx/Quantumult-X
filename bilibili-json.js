@@ -153,7 +153,7 @@ if (url.includes("/x/resource/show/skin")) {
       obj.data.items = obj.data.items.filter((i) => {
         const { card_type: cardType, card_goto: cardGoto, title, args, cover_left_text_2: pop, cover_left_text_1: video, rcmd_reason_style} = i;
         const { up_id, up_name } = args;
-        const { text } = useContext(rcmd_reason_style);
+        const { text } = rcmd_reason_style;
         if (cardType && cardGoto) {
           if (
             keywordsToMatch.some((keyword) => title && title.includes(keyword)) ||
@@ -167,9 +167,6 @@ if (url.includes("/x/resource/show/skin")) {
           } else if (['竖屏'].includes(text)) {
               console.log(`\n屏蔽竖版视频title:${title}\n屏蔽竖版视频作者:${up_name}\n屏蔽竖版视频作者uid:${up_id}\n屏蔽竖版视频播放量:${video}\n屏蔽竖版视频弹幕:${pop}\n屏蔽竖版视频version:${text}`);
               return false;
-          } else if (Number(pop) <= 100) {
-            console.log(`\n屏蔽视频title:${title}\n屏蔽视频作者:${up_name}\n屏蔽视频作者uid:${up_id}\n屏蔽视频播放量:${video}\n屏蔽视频弹幕:${pop}\n---弹幕过少---`);
-            return false;
           } else if (cardType.includes("banner") && cardGoto.includes("banner")) {
             // 去除判断条件 首页横版内容全部去掉
             return false;
