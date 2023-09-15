@@ -32,7 +32,7 @@ if (!body) {
         } else {
             console.log(`body:${$response.body}`);
             body.data.ad = body.data.ad.filter((i) => {
-            if (i.duration = '0'){
+            if (i.duration = '3000'){
                 return false
             }
             });
