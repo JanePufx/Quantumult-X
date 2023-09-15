@@ -26,20 +26,18 @@ let body = JSON.parse($response.body);
 if (!body) {
     console.log(url);
     console.log(`body:${$response.body}`);
-} else {
-    if (url.includes("apis/service/appConfig")) {
-        if (!body.data) {
+} else if (url.includes("apis/service/appConfig")) {
+        if (!body.data.ad) {
             console.log(`body:${$response.body}`);
-        } else if (!body.data.ad){
+        } else {
             console.log(`body:${$response.body}`);
-            data.ad = data.ad.filter((i) => {
+            body.data.ad = body.data.ad.filter((i) => {
             if (i.duration = '0'){
                 return false
             }
             });
         }
     }
-}
 
 body = JSON.stringify(body);
 $done({
