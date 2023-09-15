@@ -153,7 +153,7 @@ if (url.includes("/x/resource/show/skin")) {
       obj.data.items = obj.data.items.filter((i) => {
         const { card_type: cardType, card_goto: cardGoto, title, args, cover_left_text_2: pop, cover_left_text_1: video, rcmd_reason_style} = i;
         const { up_id, up_name } = args;
-        const { text } = rcmd_reason_style;
+        const { text } = useContext(rcmd_reason_style);
         if (cardType && cardGoto) {
           if (
             keywordsToMatch.some((keyword) => title && title.includes(keyword)) ||
