@@ -164,9 +164,11 @@ if (url.includes("/x/resource/show/skin")) {
             // Filter out items with any of the specified keywords in the title or specified up_id values
             console.log(`\n屏蔽视频title:${title}\n屏蔽视频作者:${up_name}\n屏蔽视频作者uid:${up_id}\n屏蔽视频播放量:${video}\n屏蔽视频弹幕:${pop}`);
             return false;
-          } else if (text == "竖屏") {
-            console.log(`\n屏蔽竖版视频title:${title}\n屏蔽竖版视频作者:${up_name}\n屏蔽竖版视频作者uid:${up_id}\n屏蔽竖版视频播放量:${video}\n屏蔽竖版视频弹幕:${pop}\n屏蔽竖版视频version:${text}`);
-            return false;
+          } else if (!rss){
+            if (text == "竖屏") {
+              console.log(`\n屏蔽竖版视频title:${title}\n屏蔽竖版视频作者:${up_name}\n屏蔽竖版视频作者uid:${up_id}\n屏蔽竖版视频播放量:${video}\n屏蔽竖版视频弹幕:${pop}\n屏蔽竖版视频version:${text}`);
+              return false;
+            }
           } else if (cardType.includes("banner") && cardGoto.includes("banner")) {
             // 去除判断条件 首页横版内容全部去掉
             return false;
