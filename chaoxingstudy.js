@@ -30,14 +30,26 @@ if (!body) {
         if (!body.data.ad) {
             console.log(`body:${$response.body}`);
         } else {
-            console.log(`body:${$response.body}`);
             body.data.ad = body.data.ad.filter((i) => {
             if (i.duration = '3000'){
+                // 去除开屏广告
                 return false
             }
             });
         }
-    }
+    } 
+    // else if (url.includes("apis/recent/getRecord.jspx")) {
+    //     if (!body.list) {
+    //         console.log(`body:${$response.body}`);
+    //     } else {
+    //         body.list = body.list.filter((i) => {
+    //         if (i.duration = '3000'){
+    //             // 去除开屏广告
+    //             return false
+    //         }
+    //         });
+    //     }
+    // }
 
 body = JSON.stringify(body);
 $done({
