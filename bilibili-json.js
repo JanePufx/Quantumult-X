@@ -169,7 +169,7 @@ if (url.includes("/x/resource/show/skin")) {
               console.log(`\n屏蔽竖版视频title:${title}\n屏蔽竖版视频作者:${up_name}\n屏蔽竖版视频作者uid:${up_id}\n屏蔽竖版视频播放量:${video}\n屏蔽竖版视频弹幕:${pop}\n屏蔽竖版视频version:${text}`);
               return false;
             }
-          } else if (int(pop) <= 100) {
+          } else if (Number(pop) <= 100) {
             console.log(`\n屏蔽视频title:${title}\n屏蔽视频作者:${up_name}\n屏蔽视频作者uid:${up_id}\n屏蔽视频播放量:${video}\n屏蔽视频弹幕:${pop}\n---弹幕过少---`);
             return false;
           } else if (cardType.includes("banner") && cardGoto.includes("banner")) {
