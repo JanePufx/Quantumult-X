@@ -15,8 +15,7 @@ hostname = apps.chaoxing.com
 
 const url = $request.url;
 const method = $request.method;
-const notifyTitle = 'chaoxing json'
-const itemsToExclude = ['微读书', '微应用', '活动']; // 添加需要去除的项目名称
+const notifyTitle = 'chaoxingstudy json'
 
 if (!$response.body) {
     console.log(`$response.body为undefined:${url}`);
@@ -28,25 +27,11 @@ if (!body) {
     console.log(url);
     console.log(`body:${$response.body}`);
 } else {
-    if (url.includes("service/config")) {
+    if (url.includes("apis/service/appConfig?")) {
         if (!body.data) {
             console.log(`body:${$response.body}`);
-        } else {
-            body.data.appconfig.hpConfig.list = body.data.appconfig.hpConfig.list.filter(item => {
-                if (item.name === '微应用') {
-                    return false;
-                }
-                if (item.name === '关注') {
-                    return false;
-                }
-                if (item.name === '微读书') {
-                    return false;
-                }
-                if (item.name === '微视频') {
-                    return false;
-                }
-                return true;
-            });
+        } else if (!body.data.ad){
+            data.ad[0].duration = '0'
         }
     }
 }
