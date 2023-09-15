@@ -31,7 +31,11 @@ if (!body) {
         if (!body.data) {
             console.log(`body:${$response.body}`);
         } else if (!body.data.ad){
-            data.ad[0].duration = '0'
+            data.ad = data.ad.filter((i) => {
+            if (i.duration = '0'){
+                return false
+            }
+            });
         }
     }
 }
