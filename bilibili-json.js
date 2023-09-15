@@ -151,9 +151,8 @@ if (url.includes("/x/resource/show/skin")) {
       const keywordsToMatch = ["Python游戏脚本", "唐家三少", "唐三", "唐门", "IDM", "今日话题", "曲率引擎", "七彩虹", "纪晓岚", "姿态", "小米平板", "万大卡", "小白必看", "分钟注册", "华莱士", "李佳琦", "花西子", "蒋小鱼", "龙队", "iPhone15", "电棍", "otto", "宋焰", "许沁", "我的人间烟火", "小太妹", "周姐", "超级小桀", "桀割", "桀哥", "小桀", "崩坏3", "Infuse", "命运石之门", "变形重组器", "iPhone 15", "Mate60", "Mate 60", "王者荣耀", "A17", "asmr", "alist", "周淑怡", "pgone", "MMORPG", "星穹铁道", "mate60", "Procreate Dreams", "海贼王", "路飞", "凯多", "EVA", "卡贴机", "小超梦", "伍佰", "悬溺", "博人传", "无畏契约", "YJJ", "网红积分", "游戏王", "oi", "华晨宇", "丁真", "Uzi", "TikTok", "魔兽世界", "Dota2", "overlord", "彩虹六号", "吕子乔", "爱情公寓", "曾小贤", "王传君", "岳云鹏", "一口气看完", "pg", "司空震", "进击的巨人", "APEX", "预制菜", "哈哟", "明日香", "野球帝", "逃离塔科夫", "汪苏泷", "神超", "CS2", "狗头萝莉", "FGO", "炉石传说", "B760", "JOJO", "碧蓝航线", "明日方舟", "王源", "王俊凯", "易烊千玺", "四字", "二字", "金河田电源", "绫波丽", "星际争霸", "辛普森一家", "神棍老师", "衣锦夜行", "死神来了", "赛马娘", "皮城", "唐家三少", "李二牛", "何晨光", "王艳兵", "机械猎手", "红警日冕", "福音战士", "宝哥", "旭旭宝宝", "warframe", "星际战甲", "皮城", "vTuber", "CLANNAD", "雌小鬼", "IOS神器", "小米手环", "Apex", "华强北", "专升本", "范闲", "庆余年", "公主连结", "姜云升", "蓝甲虫", "奥迪", "网红卖货", "德云色", "岳云鹏", "小岳", "苹果发布会", "典韦", "蜡笔小新", "恶魔契约", "对冲基金", "球王", "金铲铲", "夜吹", "魔兽争霸", "传奇", "云顶之弈", "周婌怡", "星铁", "显眼包", "分钟带你看完", "小时全面了解", "秒带你看完", "冒死上传", "凡人真仙降世", "碧蓝档案", "马娘", "TFBOYS", "tfboys", "tfboy", "Tfboy", "AI变现", "分钟入门", "分钟赚", "狗头吧", "凡人修仙", "咒术回战", "SpaceX", "UFO", "新卡速递", "炎拳", "零基础自制", "程序员教你", "家有儿女", "注册ChatGPT", "榴莲", "命运的齿轮开始转动", "一个视频了解", "魔法禁书目录", "文森特", "Steam会员", "一人之下", "李佳琪", "python自动化办公", "0编程经验", "李佳棋", "超级小丑"]; // Add more keywords as needed
       const upnamekeywordsToMatch = ["金铲铲", "野球帝", "漫剪", "JOJO", "Python", "漫威", "爱动漫", "说动漫", "说考研", "华强北", "神超"]
       obj.data.items = obj.data.items.filter((i) => {
-        const { card_type: cardType, card_goto: cardGoto, title, args, cover_left_text_2: pop, cover_left_text_1: video, rcmd_reason_style:rrs} = i;
+        const { card_type: cardType, card_goto: cardGoto, title, args, cover_left_text_2: pop, cover_left_text_1: video } = i;
         const { up_id, up_name } = args;
-        const { text } = rrs;
         if (cardType && cardGoto) {
           if (
             keywordsToMatch.some((keyword) => title && title.includes(keyword)) ||
@@ -164,11 +163,6 @@ if (url.includes("/x/resource/show/skin")) {
             // Filter out items with any of the specified keywords in the title or specified up_id values
             console.log(`\n屏蔽视频title:${title}\n屏蔽视频作者:${up_name}\n屏蔽视频作者uid:${up_id}\n屏蔽视频播放量:${video}\n屏蔽视频弹幕:${pop}`);
             return false;
-          } else if (!rss){
-            if (text == "竖屏") {
-              console.log(`\n屏蔽竖版视频title:${title}\n屏蔽竖版视频作者:${up_name}\n屏蔽竖版视频作者uid:${up_id}\n屏蔽竖版视频播放量:${video}\n屏蔽竖版视频弹幕:${pop}\n屏蔽竖版视频version:${text}`);
-              return false;
-            }
           } else if (cardType.includes("banner") && cardGoto.includes("banner")) {
             // 去除判断条件 首页横版内容全部去掉
             return false;
