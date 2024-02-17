@@ -156,8 +156,8 @@ if (url.includes("/x/resource/show/skin")) {
           (up_id && [/* Add more up_id values here */].includes(up_id)) ||
           upnamekeywordsToMatch.some((keyword) => up_name && up_name.includes(keyword)) ||
           pop <= 250 ||
-          pop == "-" ||
-          video <= 100
+          pop == "-" //||
+          // video <= 100
         )
         {
           // Filter out items with any of the specified keywords in the title or specified up_id values
