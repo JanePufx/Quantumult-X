@@ -156,7 +156,7 @@ if (url.includes("/x/resource/show/skin")) {
           (up_id && [/* Add more up_id values here */].includes(up_id)) ||
           upnamekeywordsToMatch.some((keyword) => up_name && up_name.includes(keyword)) ||
           pop <= 100 ||
-          pop == '-' ||
+          pop == "-" ||
           video <= 1000
         )
         {
